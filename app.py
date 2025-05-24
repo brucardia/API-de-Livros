@@ -31,7 +31,7 @@ def listar_livros():
 @app.route('/livros', methods=['POST'])
 def adicionar_livro():
     data = request.get_json()
-    novo = Livro(titulo=data['livro'], autor=data['autor'], ano=data.get("ano"))
+    novo = Livro(titulo=data['titulo'], autor=data['autor'], ano=data.get("ano"))
     db.session.add(novo)
     db.session.commit()
     return jsonify({'mensagem': 'Livro adicionado com sucesso'}), 201
